@@ -59,6 +59,9 @@
                 
     
     <module>repository-structure</module>
+                
+    
+    <module>dispatcher</module>
       
   </modules>
         
