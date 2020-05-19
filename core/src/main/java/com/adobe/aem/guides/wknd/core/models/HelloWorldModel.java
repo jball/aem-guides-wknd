@@ -19,6 +19,7 @@ import static org.apache.sling.api.resource.ResourceResolver.PROPERTY_RESOURCE_T
 
 import javax.annotation.PostConstruct;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Default;
@@ -28,6 +29,7 @@ import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.apache.sling.settings.SlingSettingsService;
+import org.eclipse.jetty.util.StringUtil;
 
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
@@ -47,6 +49,12 @@ public class HelloWorldModel {
     private Resource currentResource;
     @SlingObject
     private ResourceResolver resourceResolver;
+    
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    protected String greeting;
+
+	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    protected String text;
 
     private String message;
 
@@ -66,5 +74,12 @@ public class HelloWorldModel {
     public String getMessage() {
         return message;
     }
+    
+    public String getGreeting() {
+		return StringUtil.isNotBlank(greeting) ? this.greeting : "Hello";
+	}
 
+	public String getTextUpperCase() {
+		return StringUtils.isNotBlank(text) ? this.text.toUpperCase() : null;
+	}
 }
