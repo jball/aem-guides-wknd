@@ -10,4 +10,5 @@
         jcr:title="Justin Barr"
         sling:resourceType="cq/experience-fragments/components/experiencefragment"/>
     <master/>
+    <byline/>
 </jcr:root>

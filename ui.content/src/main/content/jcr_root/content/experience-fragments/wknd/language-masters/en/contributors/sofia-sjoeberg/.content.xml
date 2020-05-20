@@ -10,4 +10,5 @@
         jcr:title="Sofia Sjöberg"
         sling:resourceType="cq/experience-fragments/components/experiencefragment"/>
     <master/>
+    <byline/>
 </jcr:root>
